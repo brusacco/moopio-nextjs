@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
+import { Card } from 'react-bootstrap'
 
 export default function Home() {
   return (
@@ -20,6 +21,19 @@ export default function Home() {
           Get started by editing{' '}
           <code className={styles.code}>pages/index.js</code>
         </p>
+
+        <Card style={{ width: '18rem' }}>
+          <Card.Body>
+            <Card.Title>Moopio.com</Card.Title>
+            <Card.Subtitle className="mb-2 text-muted">Card Subtitle</Card.Subtitle>
+            <Card.Text>
+              Some quick example text to build on the card title and make up the bulk of
+              the card's content...
+            </Card.Text>
+            <Card.Link href="#">Card Link</Card.Link>
+            <Card.Link href="#">Another Link</Card.Link>
+          </Card.Body>
+        </Card>
 
         <div className={styles.grid}>
           <a href="https://nextjs.org/docs" className={styles.card}>
