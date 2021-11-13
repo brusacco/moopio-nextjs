@@ -13,8 +13,7 @@ export default function Home({articles}) {
         <link rel="icon" href="/favicon.ico" />
       </Head>   
       <main>
-        <Nav />   
-        <MyBreadcrumbs />
+        <Nav /> 
         <ArticleList articles={articles} />
         <Footer />
       </main>
