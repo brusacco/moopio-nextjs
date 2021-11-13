@@ -1,10 +1,10 @@
 import Head from 'next/head'
-import Button from '@mui/material/Button'
 import Nav from '../components/Nav'
+import ArticleList from '../components/ArticleList'
 import { styled } from '@mui/material/styles';
 
 
-export default function Home() {
+export default function Home({articles}) {
   return (
     <div>
       <Head>
@@ -13,8 +13,21 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>   
       <main>
-        <Nav />
+        <Nav />        
+        <ArticleList articles={articles} />
       </main>
     </div>
   )
+}
+
+export const getStaticProps = async () => {
+  const res = await fetch(`https://www.moopio.com/main/nuevos.json`)
+  const articles = await res.json()
+  
+ 
+  return {
+    props: {
+      articles,
+    },
+  }
 }
