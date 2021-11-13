@@ -1,8 +1,8 @@
 import Head from 'next/head'
 import Nav from '../components/Nav'
 import ArticleList from '../components/ArticleList'
-import { styled } from '@mui/material/styles';
-
+import MyBreadcrumbs from '../components/MyBreadcrumbs'
+import Footer from '../components/Footer'
 
 export default function Home({articles}) {
   return (
@@ -13,8 +13,10 @@ export default function Home({articles}) {
         <link rel="icon" href="/favicon.ico" />
       </Head>   
       <main>
-        <Nav />        
+        <Nav />   
+        <MyBreadcrumbs />
         <ArticleList articles={articles} />
+        <Footer />
       </main>
     </div>
   )
