@@ -10,8 +10,8 @@ const ArticleList = ({ articles }) => {
             backgroundColor: 'white'
         }}>
             <Masonry columns={{ xs: 1, sm: 1, md: 3 }} spacing={{ xs: 3, sm: 2, md: 3 }}>
-                {articles.slice(0, 150).map(article => (
-                    <Article key={article.id} article={article} />
+                {articles.map((article, index) => (
+                    <Article key={article.id} index={index} article={article} />
                 ))}
             </Masonry>
         </Box>

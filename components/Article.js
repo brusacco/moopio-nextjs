@@ -15,7 +15,7 @@ import { WhatsappShareButton, WhatsappIcon } from 'next-share'
 import { PinterestShareButton, PinterestIcon } from 'next-share'
 
 
-const Article = ({ article }) => {
+const Article = ({ article, index }) => {
   const share_url = `https://www.moopio.com/${article.slug}.html`
   return (
     <Card style={{ backgroundColor: 'lightgrey' }}>
@@ -38,6 +38,7 @@ const Article = ({ article }) => {
         width={article.image_size.width}
         height={article.image_size.height}
         layout='responsive'
+        priority={index < 10 ? 'true' : 'disabled'}
       />
 
       <CardContent>
