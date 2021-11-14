@@ -80,7 +80,7 @@ export default function Home({ articles }) {
 }
 
 export const getStaticProps = async () => {
-  const res = await fetch(`https://www.moopio.com/main/nuevos.json`)
+  const res = await fetch(`https://www.moopio.com/entry/show.json`)
   const articles = await res.json()
 
   return {
