@@ -1,4 +1,4 @@
-import * as React from 'react';
+import Link from 'next/link';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -22,9 +22,17 @@ export default function ButtonAppBar() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Moopio
+            <Link href="/">
+              <a>
+                Moopio
+              </a>
+            </Link>
           </Typography>
-          <Button color="inherit">Login</Button>
+          <Link href="/subiendo">
+            <a>
+              <Button color="inherit">Populares</Button>
+            </a>
+          </Link>
         </Toolbar>
       </AppBar>
     </Box>
