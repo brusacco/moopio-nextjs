@@ -38,7 +38,7 @@ const Article = ({article}) => {
       />
     
       <CardContent>
-        <Typography gutterBottom variant="h5" component="div" color="text.primary">
+        <Typography gutterBottom variant="h6" component="div" color="text.primary">
         {article.title}
         </Typography>
         <Typography variant="body2" color="text.secondary">
