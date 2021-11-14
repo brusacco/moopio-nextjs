@@ -5,16 +5,14 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import CardHeader from '@mui/material/CardHeader';
 import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
 import IconButton, { IconButtonProps } from '@mui/material/IconButton';
 import InventoryIcon from '@mui/icons-material/Inventory';
 import Typography from '@mui/material/Typography';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
-import { red } from '@mui/material/colors';
 
 const Article = ({ article }) => {
   return (
-    <Card style={{ backgroundColor: 'darkgrey' }}>
+    <Card style={{ backgroundColor: 'lightgrey' }}>
       <CardHeader
         avatar={
           <Avatar alt={article.site.name} src={article.site.image} />
@@ -35,6 +33,7 @@ const Article = ({ article }) => {
         height={article.image_size.height}
         blurDataURL="data:..." automatically provided
         placeholder="blur" // Optional blur-up while loading
+        layout='responsive'
       />
 
       <CardContent>

@@ -7,7 +7,7 @@ const ArticleList = ({ articles }) => {
         <Box pt={2} pb={10} sx={{
             display: 'flex',
             justifyContent: 'center',
-            backgroundColor: 'lightgrey'
+            backgroundColor: 'white'
         }}>
             <Masonry columns={{ xs: 1, sm: 1, md: 3 }} spacing={{ xs: 3, sm: 2, md: 3 }}>
                 {articles.entries.slice(0, 150).map(article => (
