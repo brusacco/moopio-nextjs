@@ -58,7 +58,7 @@ export default function Home({ articles }) {
         <div className="container">
           <Auth
             supabaseClient={supabase}
-            providers={['facebook', 'google', 'twitter']}
+            providers={['facebook', 'twitter']}
             onlyThirdPartyProviders={true}
             view={authView}
             socialLayout="vertical"

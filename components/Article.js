@@ -12,9 +12,11 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { FacebookShareButton, FacebookIcon } from 'next-share';
 import { TwitterShareButton, TwitterIcon } from 'next-share'
 import { WhatsappShareButton, WhatsappIcon } from 'next-share'
+import { PinterestShareButton, PinterestIcon } from 'next-share'
 
 
 const Article = ({ article }) => {
+  const share_url = `https://www.moopio.com/${article.slug}.html`
   return (
     <Card style={{ backgroundColor: 'lightgrey' }}>
       <CardHeader
@@ -35,8 +37,6 @@ const Article = ({ article }) => {
         alt={article.title}
         width={article.image_size.width}
         height={article.image_size.height}
-        blurDataURL="data:..." automatically provided
-        placeholder="blur" // Optional blur-up while loading
         layout='responsive'
       />
 
@@ -51,26 +51,34 @@ const Article = ({ article }) => {
 
       <CardActions>
         <FacebookShareButton
-          url={`https://www.moopio.com/${article.slug}.html`}
+          url={share_url}
           quote={article.title}
         >
           <FacebookIcon size={32} round />
         </FacebookShareButton>
 
         <TwitterShareButton
-          url={`https://www.moopio.com/${article.slug}.html`}
+          url={share_url}
           title={article.title}
         >
           <TwitterIcon size={32} round />
         </TwitterShareButton>
 
         <WhatsappShareButton
-          url={`https://www.moopio.com/${article.slug}.html`}
+          url={share_url}
           title={article.title}
           separator=":: "
         >
           <WhatsappIcon size={32} round />
         </WhatsappShareButton>
+
+        <PinterestShareButton
+          url={share_url}
+          description={article.description}
+          media={article.image}
+        >
+          <PinterestIcon size={32} round />
+        </PinterestShareButton>
       </CardActions>
     </Card>
   );
