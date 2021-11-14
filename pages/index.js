@@ -3,6 +3,7 @@ import Nav from '../components/Nav'
 import ArticleList from '../components/ArticleList'
 import MyBreadcrumbs from '../components/MyBreadcrumbs'
 import Footer from '../components/Footer'
+import Box from '@mui/material/Box'
 
 export default function Home({articles}) {
   return (
@@ -15,6 +16,11 @@ export default function Home({articles}) {
       <main>
         <Nav /> 
         <ArticleList articles={articles} />
+        <Box pt={2} pb={10} sx={{ display: 'flex', 
+                                  justifyContent: 'center', 
+                                  backgroundColor: 'red'
+                                }}>              
+        </Box>
         <Footer />
       </main>
     </div>

@@ -14,12 +14,10 @@ import { red } from '@mui/material/colors';
 
 const Article = ({article}) => { 
   return (
-    <Card>
+    <Card style={{backgroundColor: 'darkgrey'}}>
       <CardHeader
         avatar={
-          <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-            R
-          </Avatar>
+          <Avatar alt={article.site.name} src={article.site.image} />
         }
         action={
           <IconButton aria-label="settings">
@@ -40,17 +38,14 @@ const Article = ({article}) => {
       />
     
       <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
+        <Typography gutterBottom variant="h5" component="div" color="text.primary">
         {article.title}
         </Typography>
         <Typography variant="body2" color="text.secondary">
         {truncate(article.description,200)}
         </Typography>
       </CardContent>
-      <CardActions>
-        <InventoryIcon sx={{ mr: 0.5 }} fontSize="inherit" />
-        <Button size="small">{article.category}</Button>
-      </CardActions>
+      
     </Card>
   );
 }
