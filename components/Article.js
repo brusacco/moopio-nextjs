@@ -9,6 +9,10 @@ import IconButton, { IconButtonProps } from '@mui/material/IconButton';
 import InventoryIcon from '@mui/icons-material/Inventory';
 import Typography from '@mui/material/Typography';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
+import { FacebookShareButton, FacebookIcon } from 'next-share';
+import { TwitterShareButton, TwitterIcon } from 'next-share'
+import { WhatsappShareButton, WhatsappIcon } from 'next-share'
+
 
 const Article = ({ article }) => {
   return (
@@ -45,6 +49,29 @@ const Article = ({ article }) => {
         </Typography>
       </CardContent>
 
+      <CardActions>
+        <FacebookShareButton
+          url={`https://www.moopio.com/${article.slug}.html`}
+          quote={article.title}
+        >
+          <FacebookIcon size={32} round />
+        </FacebookShareButton>
+
+        <TwitterShareButton
+          url={`https://www.moopio.com/${article.slug}.html`}
+          title={article.title}
+        >
+          <TwitterIcon size={32} round />
+        </TwitterShareButton>
+
+        <WhatsappShareButton
+          url={`https://www.moopio.com/${article.slug}.html`}
+          title={article.title}
+          separator=":: "
+        >
+          <WhatsappIcon size={32} round />
+        </WhatsappShareButton>
+      </CardActions>
     </Card>
   );
 }
