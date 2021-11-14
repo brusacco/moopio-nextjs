@@ -12,9 +12,9 @@ import Typography from '@mui/material/Typography';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { red } from '@mui/material/colors';
 
-const Article = ({article}) => { 
+const Article = ({ article }) => {
   return (
-    <Card style={{backgroundColor: 'darkgrey'}}>
+    <Card style={{ backgroundColor: 'darkgrey' }}>
       <CardHeader
         avatar={
           <Avatar alt={article.site.name} src={article.site.image} />
@@ -36,16 +36,16 @@ const Article = ({article}) => {
         blurDataURL="data:..." automatically provided
         placeholder="blur" // Optional blur-up while loading
       />
-    
+
       <CardContent>
         <Typography gutterBottom variant="h6" component="div" color="text.primary">
-        {article.title}
+          {article.title}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-        {truncate(article.description,200)}
+          {truncate(article.description, 200)}
         </Typography>
       </CardContent>
-      
+
     </Card>
   );
 }
@@ -54,19 +54,19 @@ const Article = ({article}) => {
 export default Article;
 
 // truncate string to
- const truncate = (str, length, ending) => {
-   if (length == null) {
-     length = 100;
-   }
-   if (ending == null) {
-     ending = '...';
-   }
-   if (!str) {
-      return '';
-    }
-   if (str.length > length) {
-     return str.substring(0, length - ending.length) + ending;
-   } else {
-     return str;
-   }
- };
+const truncate = (str, length, ending) => {
+  if (length == null) {
+    length = 100;
+  }
+  if (ending == null) {
+    ending = '...';
+  }
+  if (!str) {
+    return '';
+  }
+  if (str.length > length) {
+    return str.substring(0, length - ending.length) + ending;
+  } else {
+    return str;
+  }
+};
