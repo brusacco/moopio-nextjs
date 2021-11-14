@@ -1,51 +1,10 @@
 import Head from 'next/head'
-import Link from 'next/link'
-import useSWR from 'swr'
 import Nav from '../components/Nav'
-import { useState, useEffect } from 'react'
-import { supabase } from '../utils/supabaseClient'
-import { Auth, Card, Typography, Space, Button, Icon } from '@supabase/ui'
 import ArticleList from '../components/ArticleList'
 import Footer from '../components/Footer'
 import Box from '@mui/material/Box'
 
-const fetcher = (url, token) =>
-    fetch(url, {
-        method: 'GET',
-        headers: new Headers({ 'Content-Type': 'application/json', token }),
-        credentials: 'same-origin',
-    }).then((res) => res.json())
-
 export default function Home({ articles }) {
-    const { user, session } = Auth.useUser()
-    const { data, error } = useSWR(
-        session ? ['/api/getUser', session.access_token] : null,
-        fetcher
-    )
-    const [authView, setAuthView] = useState('sign_in')
-
-    useEffect(() => {
-        const { data: authListener } = supabase.auth.onAuthStateChange(
-            (event, session) => {
-                if (event === 'PASSWORD_RECOVERY') setAuthView('update_password')
-                if (event === 'USER_UPDATED')
-                    setTimeout(() => setAuthView('sign_in'), 1000)
-                // Send session to /api/auth route to set the auth cookie.
-                // NOTE: this is only needed if you're doing SSR (getServerSideProps)!
-                fetch('/api/auth', {
-                    method: 'POST',
-                    headers: new Headers({ 'Content-Type': 'application/json' }),
-                    credentials: 'same-origin',
-                    body: JSON.stringify({ event, session }),
-                }).then((res) => res.json())
-            }
-        )
-
-        return () => {
-            authListener.unsubscribe()
-        }
-    }, [])
-
     return (
         <div>
             <Head>
@@ -55,17 +14,6 @@ export default function Home({ articles }) {
             </Head>
             <main>
                 <Nav />
-                <div className="container">
-                    <Auth
-                        supabaseClient={supabase}
-                        providers={['facebook', 'twitter']}
-                        onlyThirdPartyProviders={true}
-                        view={authView}
-                        socialLayout="vertical"
-                        socialButtonSize="xlarge"
-                        socialColors={true}
-                    />
-                </div>
                 <ArticleList articles={articles} />
                 <Box pt={2} pb={10} sx={{
                     display: 'flex',
