@@ -35,12 +35,13 @@ const ArticleItem = ({ article, index }) => {
         />
 
         <Image
-          src={article.image}
+          src={article.image_mosaic}
           alt={article.title}
           width={article.image_size.width}
           height={article.image_size.height}
+          blurDataURL={article.image_blur}
+          placeholder="blur"
           layout='responsive'
-          priority={index < 10 ? 'true' : 'disabled'}
         />
 
         <CardContent>
