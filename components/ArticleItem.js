@@ -19,7 +19,7 @@ const ArticleItem = ({ article, index }) => {
   const share_url = `https://www.moopio.com/${article.slug}.html`
   return (
     <Card style={{ backgroundColor: 'lightgrey' }}>
-      <CardActionArea href={`/${article.slug}`}>
+      <CardActionArea href={`/${article.slug}.html`}>
         <CardHeader
           avatar={
             <Avatar alt={article.site.name} src={article.site.image} />

@@ -16,10 +16,10 @@ export default function Article({ article }) {
             <main>
                 <Nav />
                 <ArticleItem article={article} />
-                <Box pt={2} pb={10} sx={{
+                <Box pt={2} pb={2} sx={{
                     display: 'flex',
                     justifyContent: 'center',
-                    backgroundColor: 'red'
+                    backgroundColor: 'white'
                 }}>
                 </Box>
                 <ArticleList articles={article.related} />
