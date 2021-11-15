@@ -78,7 +78,7 @@ export default function Home({ articles }) {
   )
 }
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async (context) => {
   const res = await fetch(`https://www.moopio.com/entry/show.json`)
   const articles = await res.json()
 
