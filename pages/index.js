@@ -78,7 +78,7 @@ export default function Home({ articles }) {
   )
 }
 
-export const getServerSideProps = async (context) => {
+export const getStaticProps = async () => {
   const res = await fetch(`https://www.moopio.com/entry/show.json`)
   const articles = await res.json()
 
@@ -86,5 +86,6 @@ export const getServerSideProps = async (context) => {
     props: {
       articles,
     },
+    revalidate: 60
   }
 }
