@@ -22,14 +22,18 @@ export default function ButtonAppBar() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            <a href="/">
-              Moopio
-            </a>
+            <Link href="/">
+              <a>
+                Moopio
+              </a>
+            </Link>
           </Typography>
           <Typography variant="h6" component="div">
-            <a href="/subiendo">
-              <Button color="inherit">Populares</Button>
-            </a>
+            <Link href="/subiendo">
+              <a>
+                <Button color="inherit">Populares</Button>
+              </a>
+            </Link>
           </Typography>
         </Toolbar>
       </AppBar>
