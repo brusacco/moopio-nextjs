@@ -22,7 +22,7 @@ export default function Article({ article }) {
                     backgroundColor: 'white'
                 }}>
                 </Box>
-                <ArticleList articles={article.related} />
+                <ArticleList articles={article.related} slug={article.slug} />
                 <Footer />
             </main>
         </div>
