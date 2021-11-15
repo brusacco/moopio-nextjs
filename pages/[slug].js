@@ -29,7 +29,7 @@ export default function Article({ article }) {
     )
 }
 
-export const getServerSideProps = async (context) => {
+/* export const getServerSideProps = async (context) => {
     const res = await fetch(`https://www.moopio.com/${context.params.slug}.json`)
     const article = await res.json()
 
@@ -38,4 +38,26 @@ export const getServerSideProps = async (context) => {
             article,
         },
     }
+} */
+
+export async function getStaticProps({ params }) {
+    const res = await fetch(`https://www.moopio.com/${params.slug}.json`)
+    const article = await res.json()
+    return {
+        props: {
+            article,
+        },
+        revalidate: 600,
+    };
+}
+
+export async function getStaticPaths() {
+    const res = await fetch('https://www.moopio.com/entry/show.json')
+    const articles = await res.json()
+
+    const paths = articles.map((article) => ({
+        params: { slug: article.slug },
+    }));
+
+    return { paths, fallback: 'blocking' };
 }
