@@ -15,7 +15,7 @@ export default function Article({ article }) {
             </Head>
             <main>
                 <Nav />
-                <ArticleItem article={article} />
+                <ArticleItem article={article} main={true} />
                 <Box pt={2} pb={2} sx={{
                     display: 'flex',
                     justifyContent: 'center',

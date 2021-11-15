@@ -16,7 +16,7 @@ import { Button, CardActionArea } from '@mui/material'
 import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
 
-const ArticleItem = ({ article, index }) => {
+const ArticleItem = ({ article, index, main = false }) => {
   const share_url = `https://www.moopio.com/${article.slug}.html`
   return (
     <Card style={{ backgroundColor: 'lightgrey' }}>
@@ -35,12 +35,10 @@ const ArticleItem = ({ article, index }) => {
         />
 
         <Image
-          src={article.image_mosaic}
+          src={main ? article.image : article.image_mosaic}
           alt={article.title}
           width={article.image_size.width}
           height={article.image_size.height}
-          blurDataURL={article.image_blur}
-          placeholder="blur"
           layout='responsive'
         />
 
