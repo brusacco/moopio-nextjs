@@ -13,7 +13,8 @@ import { TwitterShareButton, TwitterIcon } from 'next-share'
 import { WhatsappShareButton, WhatsappIcon } from 'next-share'
 import { PinterestShareButton, PinterestIcon } from 'next-share'
 import { Button, CardActionArea } from '@mui/material'
-
+import Chip from '@mui/material/Chip';
+import Stack from '@mui/material/Stack';
 
 const ArticleItem = ({ article, index }) => {
   const share_url = `https://www.moopio.com/${article.slug}.html`
@@ -30,7 +31,7 @@ const ArticleItem = ({ article, index }) => {
             </IconButton>
           }
           title={article.site.name}
-          subheader="September 14, 2016"
+          subheader={drawDate(article.created_at)}
         />
 
         <Image
@@ -49,6 +50,11 @@ const ArticleItem = ({ article, index }) => {
           <Typography variant="body2" color="text.secondary">
             {truncate(article.description, 200)}
           </Typography>
+
+          <Stack direction="row" pt={5} spacing={1}>
+            {drawTags(article.tags)}
+          </Stack>
+
         </CardContent>
       </CardActionArea>
       <CardActions>
@@ -82,14 +88,30 @@ const ArticleItem = ({ article, index }) => {
           <PinterestIcon size={32} round />
         </PinterestShareButton>
       </CardActions>
-    </Card>
+    </Card >
   );
 }
 
 
 export default ArticleItem;
 
-// truncate string to
+const drawTags = (tags) => {
+  if (!tags) return []
+  return tags.split(',').map((tag, index) => {
+    return (
+      <Chip key={index} label={tag} />
+    )
+  })
+}
+
+const drawDate = (date) => {
+  const dt = Date.parse(date)
+  return (
+    new Date(dt).toLocaleDateString("es-ES", { year: 'numeric', month: 'long', day: 'numeric' })
+  )
+}
+
+
 const truncate = (str, length, ending) => {
   if (length == null) {
     length = 100;
