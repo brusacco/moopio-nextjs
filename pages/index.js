@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import Link from 'next/link'
 import useSWR from 'swr'
 import Nav from '../components/Nav'
 import { useState, useEffect } from 'react'
