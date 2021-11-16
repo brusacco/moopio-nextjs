@@ -21,7 +21,7 @@ const ArticleList = ({ articles, slug = '' }) => {
 export default ArticleList
 
 const applyFilter = (articles, slug) => {
-    var temp = articles.filter(article => article.title.length > 0)
+    var temp = articles.filter(article => article.title)
     temp = temp.filter(article => !article.title.includes('Página no encontrada'))
     temp = temp.filter(article => article.slug !== slug)
     return temp
