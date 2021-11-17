@@ -29,7 +29,7 @@ export default function Article({ article }) {
     )
 }
 
-/* export const getServerSideProps = async (context) => {
+export const getServerSideProps = async (context) => {
     const res = await fetch(`https://www.moopio.com/${context.params.slug}.json`)
     const article = await res.json()
 
@@ -38,9 +38,9 @@ export default function Article({ article }) {
             article,
         },
     }
-} */
+}
 
-export async function getStaticProps({ params }) {
+/* export async function getStaticProps({ params }) {
     const res = await fetch(`https://www.moopio.com/${params.slug}.json`)
     const article = await res.json()
     return {
@@ -60,4 +60,4 @@ export async function getStaticPaths() {
     }));
 
     return { paths, fallback: 'blocking' };
-}
+} */
