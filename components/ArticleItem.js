@@ -47,9 +47,12 @@ const ArticleItem = ({ article, index, main = false }) => {
               {truncate(article.description, 200)}
             </Typography>
 
-            <Stack direction="row" pt={5} spacing={1}>
-              {drawTags(article.tags)}
-            </Stack>
+            {article.tags &&
+              <Stack direction="row" pt={5} spacing={1}>
+                {drawTags(article.tags)}
+              </Stack>
+            }
+
           </CardContent>
 
         </CardActionArea>
