@@ -16,7 +16,7 @@ const fetcher = (url, token) =>
   }).then((res) => res.json())
 
 export default function Home({ articles }) {
-  const { user, session } = Auth.useUser()
+  /* const { user, session } = Auth.useUser()
   const { data, error } = useSWR(
     session ? ['/api/getUser', session.access_token] : null,
     fetcher
@@ -43,7 +43,7 @@ export default function Home({ articles }) {
     return () => {
       authListener.unsubscribe()
     }
-  }, [])
+  }, []) */
 
   return (
     <div>
@@ -55,7 +55,7 @@ export default function Home({ articles }) {
       <main>
         <Nav />
         <div className="container">
-          <Auth
+          {/* <Auth
             supabaseClient={supabase}
             providers={['facebook', 'twitter']}
             onlyThirdPartyProviders={true}
@@ -63,7 +63,7 @@ export default function Home({ articles }) {
             socialLayout="vertical"
             socialButtonSize="xlarge"
             socialColors={true}
-          />
+          /> */}
         </div>
         <ArticleList articles={articles} />
         <Box pt={2} pb={10} sx={{
