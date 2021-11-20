@@ -20,20 +20,20 @@ const ArticleItem = ({ article, index, main = false }) => {
   const share_url = `https://www.moopio.com/${article.slug}.html`
   return (
     <Card style={{ backgroundColor: 'lightgrey' }}>
-      <CardActionArea href={`/${article.slug}.html`}>
-        <CardHeader
-          avatar={
-            <Avatar alt={article.site.name} src={article.site.image} />
-          }
-          action={
-            <IconButton aria-label="settings">
-              <MoreVertIcon />
-            </IconButton>
-          }
-          title={article.site.name}
-          subheader={drawDate(article.created_at)}
-        />
 
+      <CardHeader
+        avatar={
+          <Avatar alt={article.site.name} src={article.site.image} />
+        }
+        action={
+          <IconButton aria-label="settings">
+            <MoreVertIcon />
+          </IconButton>
+        }
+        title={article.site.name}
+        subheader={drawDate(article.created_at)}
+      />
+      <CardActionArea href={`/${article.slug}.html`}>
         <Image
           src={main ? article.image : article.image_mosaic}
           alt={article.title}
