@@ -8,12 +8,12 @@ import ArticleList from '../components/ArticleList'
 import Footer from '../components/Footer'
 import Box from '@mui/material/Box'
 
-const fetcher = (url, token) =>
+/* const fetcher = (url, token) =>
   fetch(url, {
     method: 'GET',
     headers: new Headers({ 'Content-Type': 'application/json', token }),
     credentials: 'same-origin',
-  }).then((res) => res.json())
+  }).then((res) => res.json()) */
 
 export default function Home({ articles }) {
   /* const { user, session } = Auth.useUser()

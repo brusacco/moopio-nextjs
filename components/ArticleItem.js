@@ -1,24 +1,18 @@
 import Image from 'next/image'
-import Link from 'next/link'
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardHeader from '@mui/material/CardHeader';
 import Avatar from '@mui/material/Avatar';
 import IconButton, { IconButtonProps } from '@mui/material/IconButton';
-import InventoryIcon from '@mui/icons-material/Inventory';
 import Typography from '@mui/material/Typography';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
-import { FacebookShareButton, FacebookIcon } from 'next-share';
-import { TwitterShareButton, TwitterIcon } from 'next-share'
-import { WhatsappShareButton, WhatsappIcon } from 'next-share'
-import { PinterestShareButton, PinterestIcon } from 'next-share'
-import { Button, CardActionArea } from '@mui/material'
+import { CardActionArea } from '@mui/material'
 import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
+import Share from './Share'
 
 const ArticleItem = ({ article, index, main = false }) => {
-  const share_url = `https://www.moopio.com/${article.slug}.html`
   return (
     <Card style={{ backgroundColor: 'lightgrey' }}>
 
@@ -60,35 +54,7 @@ const ArticleItem = ({ article, index, main = false }) => {
       </CardActionArea>
 
       <CardActions>
-        <FacebookShareButton
-          url={share_url}
-          quote={article.title}
-        >
-          <FacebookIcon size={32} round />
-        </FacebookShareButton>
-
-        <TwitterShareButton
-          url={share_url}
-          title={article.title}
-        >
-          <TwitterIcon size={32} round />
-        </TwitterShareButton>
-
-        <WhatsappShareButton
-          url={share_url}
-          title={article.title}
-          separator=":: "
-        >
-          <WhatsappIcon size={32} round />
-        </WhatsappShareButton>
-
-        <PinterestShareButton
-          url={share_url}
-          description={article.description}
-          media={article.image}
-        >
-          <PinterestIcon size={32} round />
-        </PinterestShareButton>
+        <Share article={article} />
       </CardActions>
     </Card >
   );
