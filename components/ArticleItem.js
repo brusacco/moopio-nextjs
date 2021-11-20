@@ -31,13 +31,28 @@ const ArticleItem = ({ article, index, main = false }) => {
       />
       <Link href={`/${article.slug}.html`} passHref>
         <CardActionArea href={`/${article.slug}.html`}>
-          <Image
-            src={main ? article.image : article.image_mosaic}
-            alt={article.title}
-            width={article.image_size.width}
-            height={article.image_size.height}
-            layout='responsive'
-          />
+
+          {main
+            ? <Image
+              src={article.image_mosaic}
+              alt={article.title}
+              width={article.image_size.width}
+              height={article.image_size.height}
+              blurDataURL={`data:${article.image_blur}`}
+              placeholder="blur"
+              layout='responsive'
+              priority
+            />
+            : <Image
+              src={article.image_mosaic}
+              alt={article.title}
+              width={article.image_size.width}
+              height={article.image_size.height}
+              blurDataURL={`data:${article.image_blur}`}
+              placeholder="blur"
+              layout='responsive'
+            />
+          }
 
           <CardContent>
             <Typography gutterBottom variant="h6" component="div" color="text.primary">

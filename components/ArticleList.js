@@ -11,7 +11,7 @@ const ArticleList = ({ articles, slug = '' }) => {
         }}>
             <Masonry columns={{ xs: 1, sm: 1, md: 3 }} spacing={{ xs: 3, sm: 2, md: 3 }}>
                 {applyFilter(articles, slug).map((article, index) => (
-                    <ArticleItem key={article.id} index={index} article={article} />
+                    <ArticleItem key={article.id} index={index} main={false} article={article} />
                 ))}
             </Masonry>
         </Box>
