@@ -38,7 +38,7 @@ const ArticleItem = ({ article, index, main }) => {
               alt={article.title}
               width={article.image_size.width}
               height={article.image_size.height}
-              blurDataURL={article.image_blur}
+              blurDataURL="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
               placeholder="blur"
               layout='responsive'
               priority
@@ -48,7 +48,7 @@ const ArticleItem = ({ article, index, main }) => {
               alt={article.title}
               width={article.image_size.width}
               height={article.image_size.height}
-              blurDataURL={`data:${article.image_blur}`}
+              blurDataURL="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
               placeholder="blur"
               layout='responsive'
             />
