@@ -13,7 +13,7 @@ import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
 import Share from './Share'
 
-const ArticleItem = ({ article, index, main = false }) => {
+const ArticleItem = ({ article, index, main }) => {
   return (
     <Card style={{ backgroundColor: 'lightgrey' }}>
 
@@ -32,7 +32,7 @@ const ArticleItem = ({ article, index, main = false }) => {
       <Link href={`/${article.slug}.html`} passHref>
         <CardActionArea href={`/${article.slug}.html`}>
 
-          {main == true
+          {main
             ? <Image
               src={article.image_mosaic}
               alt={article.title}
