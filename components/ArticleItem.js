@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -33,29 +34,33 @@ const ArticleItem = ({ article, index, main = false }) => {
         title={article.site.name}
         subheader={drawDate(article.created_at)}
       />
-      <CardActionArea href={`/${article.slug}.html`}>
-        <Image
-          src={main ? article.image : article.image_mosaic}
-          alt={article.title}
-          width={article.image_size.width}
-          height={article.image_size.height}
-          layout='responsive'
-        />
 
-        <CardContent>
-          <Typography gutterBottom variant="h6" component="div" color="text.primary">
-            {article.title}
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            {truncate(article.description, 200)}
-          </Typography>
+      <Link href={`/${article.slug}`}>
+        <CardActionArea href={`/${article.slug}.html`}>
+          <Image
+            src={main ? article.image : article.image_mosaic}
+            alt={article.title}
+            width={article.image_size.width}
+            height={article.image_size.height}
+            layout='responsive'
+          />
 
-          <Stack direction="row" pt={5} spacing={1}>
-            {drawTags(article.tags)}
-          </Stack>
+          <CardContent>
+            <Typography gutterBottom variant="h6" component="div" color="text.primary">
+              {article.title}
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+              {truncate(article.description, 200)}
+            </Typography>
 
-        </CardContent>
-      </CardActionArea>
+            <Stack direction="row" pt={5} spacing={1}>
+              {drawTags(article.tags)}
+            </Stack>
+
+          </CardContent>
+        </CardActionArea>
+      </Link>
+
       <CardActions>
         <FacebookShareButton
           url={share_url}
