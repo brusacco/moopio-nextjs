@@ -35,31 +35,29 @@ const ArticleItem = ({ article, index, main = false }) => {
         subheader={drawDate(article.created_at)}
       />
 
-      <Link href={`/${article.slug}`}>
-        <CardActionArea href={`/${article.slug}.html`}>
-          <Image
-            src={main ? article.image : article.image_mosaic}
-            alt={article.title}
-            width={article.image_size.width}
-            height={article.image_size.height}
-            layout='responsive'
-          />
+      <CardActionArea href={`/${article.slug}.html`}>
+        <Image
+          src={main ? article.image : article.image_mosaic}
+          alt={article.title}
+          width={article.image_size.width}
+          height={article.image_size.height}
+          layout='responsive'
+        />
 
-          <CardContent>
-            <Typography gutterBottom variant="h6" component="div" color="text.primary">
-              {article.title}
-            </Typography>
-            <Typography variant="body2" color="text.secondary">
-              {truncate(article.description, 200)}
-            </Typography>
+        <CardContent>
+          <Typography gutterBottom variant="h6" component="div" color="text.primary">
+            {article.title}
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            {truncate(article.description, 200)}
+          </Typography>
 
-            <Stack direction="row" pt={5} spacing={1}>
-              {drawTags(article.tags)}
-            </Stack>
+          <Stack direction="row" pt={5} spacing={1}>
+            {drawTags(article.tags)}
+          </Stack>
 
-          </CardContent>
-        </CardActionArea>
-      </Link>
+        </CardContent>
+      </CardActionArea>
 
       <CardActions>
         <FacebookShareButton
