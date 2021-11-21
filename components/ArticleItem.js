@@ -34,7 +34,7 @@ const ArticleItem = ({ article, main }) => {
 
           {main
             ? <Image
-              src={article.image}
+              src={article.image_mosaic}
               alt={article.title}
               width={article.image_size.width}
               height={article.image_size.height}
