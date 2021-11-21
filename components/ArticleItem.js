@@ -5,15 +5,15 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardHeader from '@mui/material/CardHeader';
 import Avatar from '@mui/material/Avatar';
-import IconButton, { IconButtonProps } from '@mui/material/IconButton';
+import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
-import { CardActionArea } from '@mui/material'
+import CardActionArea from '@mui/material'
 import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
 import Share from './Share'
 
-const ArticleItem = ({ article, index, main }) => {
+const ArticleItem = ({ article, main }) => {
   return (
     <Card style={{ backgroundColor: 'lightgrey' }}>
 
@@ -34,7 +34,7 @@ const ArticleItem = ({ article, index, main }) => {
 
           {main
             ? <Image
-              src={article.image_mosaic}
+              src={article.image}
               alt={article.title}
               width={article.image_size.width}
               height={article.image_size.height}

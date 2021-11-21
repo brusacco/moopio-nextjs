@@ -7,6 +7,7 @@ import { Auth, Card, Typography, Space, Button, Icon } from '@supabase/ui'
 import ArticleList from '../components/ArticleList'
 import Footer from '../components/Footer'
 import Box from '@mui/material/Box'
+import Breadcrumbs from '@mui/material/Breadcrumbs';
 
 /* const fetcher = (url, token) =>
   fetch(url, {
@@ -54,6 +55,12 @@ export default function Home({ articles }) {
       </Head>
       <main>
         <Nav />
+
+        <Box pt={1} pb={1}>
+          <Breadcrumbs pl={1} aria-label="breadcrumb">
+            <Typography color="text.primary">Inicio</Typography>
+          </Breadcrumbs>
+        </Box>
         <div className="container">
           {/* <Auth
             supabaseClient={supabase}
