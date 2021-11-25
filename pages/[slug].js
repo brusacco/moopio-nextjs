@@ -13,7 +13,7 @@ export default function Article({ article }) {
         <div>
             <Head>
                 <title>{article.title}</title>
-                <meta name="description" content={article.description} />
+                <meta name="description" content="Moopio.com" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <main>
@@ -53,7 +53,6 @@ export default function Article({ article }) {
     }
 } */
 
-
 export async function getStaticProps({ params }) {
     const res = await fetch(`https://www.moopio.com/${params.slug}.json`)
     const article = await res.json()
@@ -69,9 +68,15 @@ export async function getStaticPaths() {
     const res = await fetch('https://www.moopio.com/entry/show.json')
     const articles = await res.json()
 
-    const paths = articles.map((article) => ({
-        params: { slug: article.slug },
-    }));
+    // remove items from articles array if empty slug
+    const paths = articles.filter(article => article.slug).map(article => ({
+        params: {
+            slug: article.slug,
+        },
+    }))
 
-    return { paths, fallback: 'blocking' };
+    return {
+        paths,
+        fallback: 'blocking',
+    }
 }
