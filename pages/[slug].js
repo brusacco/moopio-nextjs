@@ -13,7 +13,7 @@ export default function Article({ article }) {
         <div>
             <Head>
                 <title>{article.title}</title>
-                <meta name="description" content="Moopio.com" />
+                <meta name="description" content="{article.description}" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <main>
@@ -21,7 +21,7 @@ export default function Article({ article }) {
 
                 <Box pt={1} pb={1}>
                     <Breadcrumbs pl={1} aria-label="breadcrumb">
-                        <Link underline="hover" color="inherit" href="/">
+                        <Link underline="hover" color="inherit" href="/" prefetch={false}>
                             Inicio
                         </Link>
                         <Typography color="text.primary">Noticia</Typography>
