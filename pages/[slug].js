@@ -53,6 +53,7 @@ export default function Article({ article }) {
     }
 } */
 
+
 export async function getStaticProps({ params }) {
     const res = await fetch(`https://www.moopio.com/${params.slug}.json`)
     const article = await res.json()
